@@ -43,6 +43,18 @@ export interface TimelineItem {
   description: string;
 }
 
+export interface CourseItem {
+  id: string;
+  code?: string;
+  title: string;
+  level: "Undergraduate" | "Graduate" | "Advanced Lab / Seminar" | "Undergraduate / Capstone";
+  institution: string;
+  period: string;
+  role: string;
+  description: string;
+  topics: string[];
+}
+
 export interface Distinction {
   year: string;
   title: string;
@@ -399,4 +411,116 @@ export const PORTFOLIO_DATA = {
       detail: "I was awarded a competitive doctoral research scholarship to pursue doctoral studies in Control Science and Engineering at BIT.",
     },
   ] as Distinction[],
+
+  courses: [
+    {
+      id: "control-systems",
+      code: "ECE 3101",
+      title: "Control Systems Engineering (Linear & Non-linear)",
+      level: "Undergraduate",
+      institution: "Addis Ababa Science and Technology University (AASTU)",
+      period: "2016 – 2019",
+      role: "Lecturer & Course Coordinator",
+      description:
+        "Comprehensive instruction in dynamic mathematical modeling, state-space representations, Lyapunov stability, root locus, frequency domain design (Bode/Nyquist), state observers, and closed-loop feedback controller synthesis.",
+      topics: [
+        "State-Space Representations",
+        "Lyapunov & Routh Stability",
+        "Root Locus & Frequency Domain",
+        "State Feedback & Observers",
+        "MATLAB & Simulink Synthesis",
+      ],
+    },
+    {
+      id: "signals-systems",
+      code: "ECE 2204",
+      title: "Signals and Systems & State Estimation",
+      level: "Undergraduate",
+      institution: "Addis Ababa Science and Technology University (AASTU)",
+      period: "2017 – 2019",
+      role: "Lecturer",
+      description:
+        "Rigorous mathematical treatment of continuous and discrete-time signals, LTI systems, convolution integrals, Fourier series and transforms, Laplace/Z-transforms, and fundamental discrete Kalman filtering formulations.",
+      topics: [
+        "LTI Systems & Convolution",
+        "Fourier & Z-Transforms",
+        "Stochastic State Estimation",
+        "Discrete Kalman Filtering",
+        "Sampling Theorem & Aliasing",
+      ],
+    },
+    {
+      id: "applied-ml-control",
+      code: "AUTO 802",
+      title: "Applied Machine Learning & Neural Networks in Control",
+      level: "Graduate",
+      institution: "Beijing Institute of Technology (BIT)",
+      period: "2023 – Present",
+      role: "Co-Instructor & Research Seminar Mentor",
+      description:
+        "Advanced graduate seminar exploring physics-informed deep learning, physics-informed transformers, residual learning, Kalman filter hybridizations, and flight sensor analytical redundancy for safety-critical aerospace systems.",
+      topics: [
+        "Physics-Informed Neural Networks (PINNs)",
+        "Transformers for Temporal Signals",
+        "Kalman-LSTM Hybrid Architectures",
+        "Analytical Redundancy & FDIA",
+        "Adversarial Feature Alignment",
+      ],
+    },
+    {
+      id: "instrumentation-sensors",
+      code: "EE 3112",
+      title: "Sensor Instrumentation, Measurement & Process Control",
+      level: "Undergraduate",
+      institution: "Debre Berhan University (DBU)",
+      period: "2013 – 2016",
+      role: "Lecturer",
+      description:
+        "Principles of physical transducers (aerodynamic, kinematic, thermal), analog signal conditioning, ADC conversion, telemetry protocols, sensor fault modes, analytical redundancy, and industrial process control loops.",
+      topics: [
+        "Transducer Physics & Calibration",
+        "Signal Conditioning Amplifiers",
+        "Telemetry & Industrial Buses",
+        "Sensor Fault Detection",
+        "Closed-Loop Process Control",
+      ],
+    },
+    {
+      id: "circuits-lab",
+      code: "EE 2101L",
+      title: "Electrical Circuits & Control Systems Laboratory",
+      level: "Undergraduate",
+      institution: "Debre Berhan University (DBU)",
+      period: "2013 – 2015",
+      role: "Laboratory Director & Instructor",
+      description:
+        "Hands-on laboratory instruction utilizing oscilloscopes, arbitrary function generators, operational amplifier circuits, transient dynamic response analysis, and hardware-in-the-loop (HIL) prototype verification.",
+      topics: [
+        "Oscilloscopes & Signal Analysis",
+        "Op-Amp Active Filter Topologies",
+        "Transient Response Testing",
+        "Breadboard Prototyping",
+        "Laboratory Instrumentation Safety",
+      ],
+    },
+    {
+      id: "senior-capstone",
+      code: "ECE 4900",
+      title: "Undergraduate Senior Capstone & Engineering Thesis Advising",
+      level: "Undergraduate / Capstone",
+      institution: "AASTU & DBU",
+      period: "2014 – 2019",
+      role: "Faculty Project Advisor",
+      description:
+        "Advising and mentoring over 35 undergraduate engineering teams through conception, simulation, embedded hardware implementation, technical report writing, and formal thesis defense.",
+      topics: [
+        "Autonomous Robotics Prototypes",
+        "Microcontroller Interfacing & C/C++",
+        "Sensor Fusion & Actuator Control",
+        "Technical Documentation & Defense",
+        "Engineering Ethics & Reliability",
+      ],
+    },
+  ] as CourseItem[],
 };
+

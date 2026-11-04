@@ -1,18 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --navy: #1B365D;
-  --slate: #5A6B7C;
+  --navy: #00455e;
+  --navy-light: #005a7a;
+  --navy-lightest: #e6f0f3;
+  --navy-dark: #003142;
 }
 
 html {
   scroll-behavior: smooth;
-  background-color: #FFFFFF;
-  color: #1B365D;
+  scrollbar-gutter: stable;
+  background-color: #f9fafb;
+  color: #1f2937;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -20,62 +23,63 @@ html {
 body {
   margin: 0;
   padding: 0;
-  background-color: #FFFFFF;
-  color: #2C3E50;
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  line-height: 1.7;
+  background-color: #f9fafb;
+  color: #1f2937;
+  font-family: 'Source Sans 3', 'Inter', system-ui, -apple-system, sans-serif;
+  line-height: 1.65;
 }
 
-/* Headings: Oxford Academic Navy (#1B365D) - Bold */
-h1, h2, h3, h4, .font-serif {
-  font-family: 'Source Serif 4', Georgia, serif;
-  color: #1B365D;
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  color: #111827;
   letter-spacing: -0.015em;
 }
 
-h1, h2, h3 {
-  font-weight: 700;
+/* Custom color classes matching benjaminschiffer.com */
+.text-navy {
+  color: #00455e;
 }
-
-/* Subtitles: Cool Scholarly Slate (#5A6B7C) - Slick Italic with Distinct Look */
-.subtitle, .section-subtitle {
-  font-family: 'Source Serif 4', Georgia, serif;
-  font-style: italic;
-  color: #5A6B7C;
-  letter-spacing: 0.015em;
-  font-size: 15px;
-  line-height: 1.5;
+.bg-navy {
+  background-color: #00455e;
+}
+.border-navy {
+  border-color: #00455e;
+}
+.hover\:text-navy-light:hover {
+  color: #005a7a;
+}
+.hover\:bg-navy-light:hover {
+  background-color: #005a7a;
+}
+.bg-navy-lightest {
+  background-color: #e6f0f3;
 }
 
 ::selection {
-  background-color: rgba(27, 54, 93, 0.15);
-  color: #1B365D;
+  background-color: rgba(0, 69, 94, 0.2);
+  color: #00455e;
 }
 
-/* Minimalist Editorial Links */
-.text-link {
-  color: #1B365D;
-  text-decoration: underline;
-  text-decoration-color: rgba(90, 107, 124, 0.4);
-  text-underline-offset: 3px;
-  transition: all 0.15s ease;
+/* On-scroll fade-in animation */
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 }
 
-.text-link:hover {
-  text-decoration-color: #1B365D;
-  color: #1B365D;
-}
-
-/* Subtle Slate Hairlines */
-.rule {
-  height: 1px;
-  background-color: rgba(90, 107, 124, 0.18);
-  border: none;
-  margin: 0;
+.fade-in-section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
+  .fade-in-section {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }
+

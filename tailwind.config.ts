@@ -10,9 +10,11 @@ const config: Config = {
     extend: {
       colors: {
         navy: {
-          900: "#0F2440",
-          DEFAULT: "#1B365D",
-          light: "#254B82",
+          900: "#002431",
+          dark: "#003142",
+          DEFAULT: "#00455e",
+          light: "#005a7a",
+          lightest: "#e6f0f3",
         },
         slate: {
           muted: "#5A6B7C",
@@ -22,8 +24,8 @@ const config: Config = {
         },
       },
       fontFamily: {
+        sans: ["var(--font-inter)", "Inter", "Source Sans 3", "system-ui", "sans-serif"],
         serif: ["var(--font-source-serif)", "Source Serif 4", "Georgia", "serif"],
-        sans: ["var(--font-inter)", "Inter", "system-ui", "sans-serif"],
       },
     },
   },
