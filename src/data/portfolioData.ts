@@ -16,17 +16,13 @@ export interface ResearchProject {
   id: string;
   title: string;
   role: string;
+  researchType?: string;
   institution: string;
   period: string;
-  researchType?: string;
-  category: string;
-  summary: string;
   challenge: string;
   methodology: string;
-  contribution: string;
-  impact: string;
+  contributionAndImpact: string;
   relevantPaperDoi?: string;
-  venueName?: string;
 }
 
 export interface AppointmentItem {
@@ -46,19 +42,12 @@ export interface EducationItem {
   location: string;
   period: string;
   description?: string;
-  statusNote?: string;
 }
 
 export interface CourseItem {
   id: string;
-  code?: string;
   title: string;
-  level: "Undergraduate" | "Graduate" | "Undergraduate / Graduate";
-  institution: string;
-  period: string;
-  role: string;
   description: string;
-  topics: string[];
 }
 
 export interface Distinction {
@@ -102,13 +91,13 @@ export const PORTFOLIO_DATA = {
       description:
         "I led research on multisensory fusion. The primary objective was to combine multimodal data, physics-based models, and reasoning frameworks.",
       projectHighlights: [
-        "Project 1: Hybrid AI and physics-based fault diagnosis for aircraft health monitoring (Project Lead)",
-        "Project 2: Multimodal classroom behavior evaluation using large language model (LLM) agents (Main Contributor)",
+        "Project 1: Hybrid AI and physics-based fault diagnosis for aircraft health monitoring (project lead)",
+        "Project 2: Multimodal classroom behavior evaluation using large language model (LLM) agents",
       ],
     },
     {
       id: "lecturer-aastu",
-      title: "Lecturer in Electrical and Control Engineering",
+      title: "Lecturer in Electrical & Control Engineering",
       institution: "Addis Ababa Science and Technology University (AASTU)",
       location: "Addis Ababa, Ethiopia",
       period: "2016 – 2019",
@@ -132,10 +121,9 @@ export const PORTFOLIO_DATA = {
       degree: "Executive Master of Business Administration (EMBA)",
       institution: "Quantic School of Business and Technology",
       location: "Washington D.C., United States",
-      period: "2024 – 2026 (Online)",
+      period: "Online 2024 – 2026",
       description:
-        "I completed an EMBA program covering strategy, data and decisions, supply chain and operations, AI for business, entrepreneurship, and related courses.",
-      statusNote: "Program coursework completed online; degree issuance pending final administrative conferral.",
+        "EMBA program in strategy, data and decisions, supply chain and operations, AI for business, entrepreneurship, and other courses.",
     },
     {
       id: "phd",
@@ -148,7 +136,7 @@ export const PORTFOLIO_DATA = {
     },
     {
       id: "msc",
-      degree: "Master of Science (MSc) in Electrical and Computer Engineering (Control Engineering)",
+      degree: "Master of Science (MSc) in Electrical Engineering (Control Engineering)",
       institution: "Addis Ababa University (AAU)",
       location: "Addis Ababa, Ethiopia",
       period: "2010 – 2013",
@@ -172,19 +160,13 @@ export const PORTFOLIO_DATA = {
       researchType: "Postdoctoral Research",
       institution: "Beijing Institute of Technology",
       period: "Mar 2024 – Sep 2026",
-      category: "AEROSPACE AVIONICS & SENSOR FUSION",
-      summary:
-        "Fuses angle-of-attack, inertial, airspeed, altitude, and attitude data through Physics-Informed Transformers and Hybrid Kalman-LSTM networks to mitigate sensor bias and drift with sub-degree accuracy.",
       challenge:
         "I address the critical vulnerability of Angle-of-Attack sensors in flight control, stall prevention, and fly-by-wire envelope limiters, where physical hardware redundancy can suffer common-mode failures such as icing, bird strikes, electrical failure or mechanical jams.",
       methodology:
         "I proposed several methods that use both physics-based modeling and data-driven machine learning methods (Physics-Informed Transformers and Hybrid Kalman-LSTM networks). It fuses angle-of-attack, inertial, airspeed, altitude and attitude data to isolate faulty signals and reconstruct the sensor value in real time.",
-      contribution:
-        "I validated this methodology on real flight dataset, demonstrating that my proposed method mitigates sudden sensor bias and gain drift with sub-degree accuracy.",
-      impact:
-        "My framework eliminates single-point-of-fault vulnerabilities in safety-critical flight control without adding physical airframe weight or hardware complexity. The work resulted in three first-author SCI Q1 journal articles (2026).",
+      contributionAndImpact:
+        "I validated this methodology on real flight dataset, demonstrating that my proposed method mitigates sudden sensor bias and gain drift with sub-degree accuracy. My framework eliminates single-point-of-fault vulnerabilities in safety-critical flight control without adding physical airframe weight or hardware complexity. The work resulted in three first-author SCI Q1 journal articles (2026).",
       relevantPaperDoi: "10.1016/j.ast.2026.112390",
-      venueName: "Aerospace Science and Technology, MSSP & Measurement (2026)",
     },
     {
       id: "classroom-rag-agent",
@@ -193,19 +175,13 @@ export const PORTFOLIO_DATA = {
       researchType: "Postdoctoral Research",
       institution: "Beijing Institute of Technology",
       period: "Mar 2024 – Sep 2026",
-      category: "MULTIMODAL AI & AGENTIC SYSTEMS",
-      summary:
-        "Integrates video, audio, and text perception streams using fuzzy-logic fusion and a Qwen2.5-Max LLM agent with Retrieval-Augmented Generation and ReAct reasoning for automated learning state evaluation.",
       challenge:
         "I address the difficulty of evaluating teaching and learning quality consistently from the raw, unstructured signals of a live classroom (video, audio and text), where perception outputs alone do not explain what is happening.",
       methodology:
         "I designed an agentic layer on top of a video, audio and text perception pipeline with fuzzy-logic fusion. A large language model agent (Qwen2.5-Max) with retrieval-augmented generation (RAG) and a ReAct-style reasoning loop interprets the perception outputs and produces automated evaluations of teaching and learning.",
-      contribution:
-        "I delivered a practical implementation and piloted it in a live classroom setting.",
-      impact:
-        "The work produced one journal article and several conference papers as corresponding author, and I guided student researchers to their own publications on the platform.",
+      contributionAndImpact:
+        "I delivered a practical implementation and piloted it in a live classroom setting. The work produced one journal article and several conference papers as corresponding author, and I guided student researchers to their own publications on the platform.",
       relevantPaperDoi: "10.1007/978-981-95-6730-0_10",
-      venueName: "Communications in Computer and Information Science (Springer 2026)",
     },
     {
       id: "aoa-fdia-doctoral",
@@ -214,76 +190,52 @@ export const PORTFOLIO_DATA = {
       researchType: "Doctoral Research",
       institution: "Beijing Institute of Technology",
       period: "Sep 2020 – Jun 2023",
-      category: "DOCTORAL RESEARCH & FLIGHT CONTROL",
-      summary:
-        "Developed recurrent neural network architectures providing software-based analytical redundancy and sensor reconstruction for F-16 fixed-wing flight control under severe sensor failure.",
       challenge:
         "I address the loss of reliable angle-of-attack measurements in fixed-wing aircraft when a sensor fails, which threatens flight control and stall protection and cannot always be covered by duplicated hardware.",
       methodology:
         "I developed data-driven models, based on recurrent neural networks, that detect and isolate a faulty angle-of-attack sensor and accommodate it by predicting the correct measurement from the remaining flight data, so that flight continues on a reconstructed signal.",
-      contribution:
-        "I validated the approach on F-16 flight conditions with faulty sensors, delivering a software-based accommodation scheme that needs no extra hardware.",
-      impact:
-        "It resulted in two first-author SCI Q1 journal articles and one EI conference paper, and it formed the foundation for my later hybrid physics-informed work.",
+      contributionAndImpact:
+        "I validated the approach on F-16 flight conditions with faulty sensors, delivering a software-based accommodation scheme that needs no extra hardware. It resulted in two first-author SCI Q1 journal articles and one EI conference paper, and it formed the foundation for my later hybrid physics-informed work.",
       relevantPaperDoi: "10.1016/j.engappai.2022.104799",
-      venueName: "Engineering Applications of Artificial Intelligence & CIS (2022–2023)",
     },
     {
       id: "solar-flour-mill",
       title: "Battery-Free, Solar-Powered Flour-Milling System",
       role: "Project Lead",
-      researchType: "Funded Engineering Research",
       institution: "Addis Ababa Science and Technology University",
       period: "Sep 2017 – Sep 2019",
-      category: "APPLIED ENERGY & ELECTROMECHANICAL SYSTEMS",
-      summary:
-        "Engineered a direct-drive, battery-free photovoltaic milling system eliminating costly battery maintenance for off-grid rural communities, demonstrated via a fully functioning prototype.",
       challenge:
         "I address the need for affordable milling in rural communities, where grid electricity is unreliable or unavailable and the cost and upkeep of batteries make conventional solar systems hard to sustain.",
       methodology:
         "I designed a battery-free, solar-powered milling system that drives the mill directly from solar energy, working from concept through design to a functioning prototype.",
-      contribution:
+      contributionAndImpact:
         "I delivered an economically viable and sustainable solution for rural communities, demonstrated as a working prototype.",
-      impact:
-        "Proved the viability of direct solar-to-mechanical conversion for rural staple food processing, eliminating recurring battery replacement costs and fuel dependence.",
     },
     {
       id: "oxygen-unit-feasibility",
       title: "Feasibility Study: Oxygen Production Unit, Debre Berhan Hospital",
       role: "Project Developer",
-      researchType: "Feasibility Study",
       institution: "Rotary Club of Debre Berhan",
       period: "Oct 2015 – Oct 2017",
-      category: "HEALTHCARE INFRASTRUCTURE & FEASIBILITY",
-      summary:
-        "Comprehensive technical, financial, and operational feasibility study evaluating the establishment and continuous operation of an on-site medical oxygen production facility.",
       challenge:
         "I address the medical need for a dependable oxygen supply at Debre Berhan Hospital.",
       methodology:
         "I carried out a feasibility study of an on-site oxygen production facility, assessing whether such a unit could be established and operated to serve the hospital.",
-      contribution:
+      contributionAndImpact:
         "I provided the evidence base for deciding whether to invest in on-site oxygen production for the hospital.",
-      impact:
-        "Equipped regional healthcare leadership and civic partners with detailed engineering specifications, capital expenditure models, and lifecycle operational projections for life-saving medical oxygen production.",
     },
     {
       id: "waste-management-sanitation",
       title: "Pre-Feasibility Study: Solid Waste Management and Sanitation, Debre Berhan City",
       role: "Project Developer",
-      researchType: "Pre-Feasibility Study",
       institution: "Rotary Club of Debre Berhan",
       period: "Oct 2015 – Oct 2017",
-      category: "URBAN SANITATION & ENVIRONMENTAL PLANNING",
-      summary:
-        "Evaluated urban sanitation challenges and formulated a sustainable municipal solid waste management strategy, collection logistics, and disposal alternatives.",
       challenge:
         "I address the sanitation and solid waste challenges of a growing city, which are central to sustainable urban development.",
       methodology:
         "I evaluated the existing situation and options for waste management and sanitation in Debre Berhan city through a pre-feasibility study.",
-      contribution:
+      contributionAndImpact:
         "I proposed an effective waste management and sanitation system to support sustainable urban development.",
-      impact:
-        "Formulated actionable policy recommendations and sustainable operational roadmaps for city administration to enhance public health, waste processing, and urban environmental protection.",
     },
   ] as ResearchProject[],
 
@@ -499,129 +451,45 @@ export const PORTFOLIO_DATA = {
   courses: [
     {
       id: "digital-control",
-      code: "ECE 4201",
       title: "Digital Control",
-      level: "Undergraduate",
-      institution: "Addis Ababa Science and Technology University (AASTU)",
-      period: "2016 – 2019",
-      role: "Lecturer & Course Coordinator",
       description:
         "Analysis and design of discrete-time control systems using Z-transform, state-space methods, and digital controller implementation.",
-      topics: [
-        "Z-Transform Analysis",
-        "Discrete State-Space",
-        "Digital Controller Implementation",
-        "Sampling & Discretization",
-        "Stability in Z-Domain",
-      ],
     },
     {
       id: "intro-control",
-      code: "ECE 3101",
       title: "Introduction to Control",
-      level: "Undergraduate",
-      institution: "Addis Ababa Science and Technology University (AASTU)",
-      period: "2016 – 2019",
-      role: "Lecturer",
       description:
         "Fundamentals of feedback control, transfer functions, time and frequency response, and stability analysis.",
-      topics: [
-        "Feedback Control Principles",
-        "Transfer Function Modeling",
-        "Time-Domain Dynamics",
-        "Frequency Response Design",
-        "Routh-Hurwitz Stability",
-      ],
     },
     {
       id: "modern-control",
-      code: "ECE 4102",
       title: "Modern Control Engineering",
-      level: "Undergraduate / Graduate",
-      institution: "Addis Ababa Science and Technology University (AASTU)",
-      period: "2016 – 2019",
-      role: "Lecturer",
       description:
         "State-space modeling, controllability, observability, state feedback, observers, and optimal control fundamentals.",
-      topics: [
-        "State-Space Modeling",
-        "Controllability & Observability",
-        "State Feedback Synthesis",
-        "Luenberger Observers",
-        "Optimal Control Fundamentals",
-      ],
     },
     {
       id: "electrical-machines-drives",
-      code: "EE 3203",
       title: "Electrical Machines and Drives",
-      level: "Undergraduate",
-      institution: "Debre Berhan University (DBU)",
-      period: "2013 – 2016",
-      role: "Lecturer",
       description:
         "Principles, operation, modeling, and control of DC and AC electrical machines and drive systems.",
-      topics: [
-        "DC Machines & Characteristics",
-        "AC Induction Motors",
-        "Synchronous Machines",
-        "Electromechanical Energy Conversion",
-        "Industrial Motor Drive Control",
-      ],
     },
     {
       id: "power-electronics-drives",
-      code: "EE 4104",
       title: "Power Electronics and Electric Drives",
-      level: "Undergraduate",
-      institution: "Debre Berhan University (DBU)",
-      period: "2013 – 2016",
-      role: "Lecturer",
       description:
         "Power electronic converters, motor drive systems, PWM techniques, and speed control of electric machines.",
-      topics: [
-        "Power Semiconductor Devices",
-        "DC-DC Switch-Mode Converters",
-        "Inverters & PWM Topologies",
-        "Variable Frequency Drives (VFD)",
-        "Closed-Loop Speed Control",
-      ],
     },
     {
       id: "intro-robotics",
-      code: "ECE 4305",
       title: "Introduction to Robotics",
-      level: "Undergraduate",
-      institution: "Debre Berhan University (DBU)",
-      period: "2013 – 2016",
-      role: "Lecturer",
       description:
         "Modeling, kinematics, Jacobian analysis, dynamics, trajectory planning, and feedback control of industrial robotic manipulators.",
-      topics: [
-        "Forward & Inverse Kinematics",
-        "Jacobian Velocity Analysis",
-        "Manipulator Dynamics (Euler-Lagrange)",
-        "Trajectory Planning in Joint/Cartesian Space",
-        "Feedback Motion Control",
-      ],
     },
     {
       id: "digital-signal-processing",
-      code: "ECE 3206",
       title: "Digital Signal Processing",
-      level: "Undergraduate",
-      institution: "Addis Ababa Science and Technology University (AASTU)",
-      period: "2016 – 2019",
-      role: "Lecturer",
       description:
         "Discrete-time signals and systems, digital filter design, Z-transform, DFT, and FFT for signal analysis.",
-      topics: [
-        "Discrete-Time Signals & Systems",
-        "FIR Filter Design Techniques",
-        "IIR Digital Filters",
-        "Discrete Fourier Transform (DFT)",
-        "Fast Fourier Transform (FFT) Algorithms",
-      ],
     },
   ] as CourseItem[],
 };

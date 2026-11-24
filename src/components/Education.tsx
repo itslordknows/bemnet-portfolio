@@ -2,7 +2,7 @@
 
 import React from "react";
 import { PORTFOLIO_DATA } from "@/data/portfolioData";
-import { GraduationCap, Info } from "lucide-react";
+import { GraduationCap } from "lucide-react";
 
 export default function Education() {
   const { education } = PORTFOLIO_DATA;
@@ -51,13 +51,6 @@ export default function Education() {
                 {item.description && (
                   <p className="text-gray-700 text-sm mt-2 leading-relaxed">
                     {item.description}
-                  </p>
-                )}
-
-                {item.statusNote && (
-                  <p className="text-xs text-amber-800 bg-amber-50/80 border border-amber-200/60 p-2 rounded mt-2 flex items-center gap-1.5">
-                    <Info className="w-3.5 h-3.5 flex-shrink-0 text-amber-700" />
-                    <span>{item.statusNote}</span>
                   </p>
                 )}
               </div>
