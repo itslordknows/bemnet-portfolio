@@ -9,17 +9,27 @@ export default function Navbar() {
   const [activeSection, setActiveSection] = useState("about");
 
   const navLinks = [
-    { name: "About Me", href: "#about" },
-    { name: "Project", href: "#projects" },
-    { name: "Research", href: "#research" },
-    { name: "Courses Taught", href: "#courses" },
-    { name: "Contact Me", href: "#contact" },
+    { name: "About", href: "#about" },
+    { name: "Appointments", href: "#appointments" },
+    { name: "Education", href: "#education" },
+    { name: "Projects", href: "#projects" },
+    { name: "Publications", href: "#publications" },
+    { name: "Teaching", href: "#courses" },
+    { name: "Contact", href: "#contact" },
   ];
 
   // Active section tracking on scroll
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["about", "projects", "research", "courses", "contact"];
+      const sections = [
+        "about",
+        "appointments",
+        "education",
+        "projects",
+        "publications",
+        "courses",
+        "contact",
+      ];
       const scrollPos = window.scrollY + 120;
 
       for (let i = sections.length - 1; i >= 0; i--) {
@@ -59,7 +69,7 @@ export default function Navbar() {
   return (
     <nav
       id="main-nav"
-      className="bg-white/85 backdrop-blur-md shadow-sm sticky top-0 z-50 border-b border-gray-200/60 transition-all duration-200"
+      className="bg-white/90 backdrop-blur-md shadow-sm sticky top-0 z-50 border-b border-gray-200/60 transition-all duration-200"
     >
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
@@ -68,15 +78,15 @@ export default function Navbar() {
             <a
               href="#about"
               onClick={(e) => handleNavClick(e, "#about")}
-              className="font-bold text-xl text-gray-900 hover:text-navy transition-colors tracking-tight"
+              className="font-bold text-xl text-gray-900 hover:text-navy transition-colors tracking-tight font-serif"
             >
               {PORTFOLIO_DATA.personal.shortName}
             </a>
           </div>
 
-          {/* Desktop Navigation Tabs: about me, project, research, courses thought, contact me */}
+          {/* Desktop Navigation Tabs */}
           <div className="hidden md:block">
-            <div className="ml-10 flex items-center space-x-2 lg:space-x-4">
+            <div className="ml-6 flex items-center space-x-1 lg:space-x-2">
               {navLinks.map((link) => {
                 const targetId = link.href.replace("#", "");
                 const isActive = activeSection === targetId;
@@ -86,7 +96,7 @@ export default function Navbar() {
                     key={link.name}
                     href={link.href}
                     onClick={(e) => handleNavClick(e, link.href)}
-                    className={`px-3 py-2 rounded-md text-sm font-medium transition-all duration-150 ${
+                    className={`px-2.5 py-1.5 rounded-md text-xs lg:text-sm font-medium transition-all duration-150 ${
                       isActive
                         ? "text-navy font-semibold bg-navy-lightest"
                         : "text-gray-600 hover:text-navy hover:bg-gray-100/70"

@@ -9,6 +9,16 @@
 
 ## 1. Completed Milestones
 
+- [x] **Academic Content Revisions (`feature/academic-content-revisions`)**:
+  - Implemented all 14 revisions from Dr. Bemnet's authoritative review document `Comment--portfolio.docx`.
+  - **Designation Standardized**: Changed professional designation to **"Multisensory Fusion Researcher"** and subtitle to **"Control Engineer and AI Researcher"** across Hero, metadata, structured data, and footer.
+  - **First-Person Bio Updated**: Incorporated Dr. Bemnet's refined two-paragraph research statement.
+  - **Appointments & Education Split**: Separated appointments (Postdoc at BIT, Lecturer at AASTU, Lecturer at DBU) from education (EMBA, PhD, MSc, BSc).
+  - **Research Projects Expanded**: Detailed 6 high-fidelity research initiatives with structured challenges, methodologies, contributions, impacts, and linked publication DOIs.
+  - **Publications Isolated**: Created dedicated `Publications.tsx` section with 12 verified peer-reviewed articles and removed redundant 4-theme grid.
+  - **Teaching Portfolio Streamlined**: Standardized 7 unique courses with level badges, course codes, and topics.
+  - **Quality Gates Passed**: Zero TypeScript errors (`npx tsc --noEmit`), zero ESLint errors (`npm run lint`), static production build succeeded (`npm run build`), and zero vulnerabilities on `npm audit`.
+
 - [x] **GitHub Authentication Resolution**:
   - Diagnosed Windows Credential Manager conflict where global credentials defaulted to `Getayawkal-w`.
   - Added dedicated credential entry for `git:https://itslordknows@github.com` with fine-grained PAT configured with `Contents` and `Workflows` write permissions.

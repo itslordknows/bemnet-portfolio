@@ -8,7 +8,22 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
-- Documentation synchronization across repository (`README.md`, `AGENTS.md`, `PROJECT_STATUS.md`, `CHANGELOG.md`, `docs/PROJECT_HANDOFF.md`).
+### Added
+- **Academic Appointments Section (`Appointments.tsx`)**: Dedicated section for academic and research appointments (BIT Postdoc with Project 1 & 2 highlights, AASTU Lecturer, DBU Lecturer).
+- **Education Section (`Education.tsx`)**: Dedicated section for higher education degrees (EMBA with online review note, PhD in Control Science and Engineering, MSc in Control and Power Engineering, BSc in Electrical and Electronics Engineering).
+- **Publications Section (`Publications.tsx`)**: Standalone publications component presenting 12 verified peer-reviewed articles, international conference papers, and book chapters with DOI links and type filtering.
+
+### Changed
+- **Academic Profile Revisions (`src/data/portfolioData.ts`)**:
+  - Updated title to **"Multisensory Fusion Researcher"** and subtitle to **"Control Engineer and AI Researcher"** across all components and metadata.
+  - Replaced introductory biography with Dr. Bemnet's refined two-paragraph research statement.
+  - Replaced preliminary project entries with 6 comprehensive research initiatives containing structured challenges, methodologies, contributions, impacts, and publication links.
+  - Standardized teaching experience to 7 unique courses (Digital Control, Introduction to Control, Modern Control Engineering, Electrical Machines and Drives, Power Electronics and Electric Drives, Introduction to Robotics, Digital Signal Processing).
+  - Updated top navigation tabs to `About`, `Appointments`, `Education`, `Projects`, `Publications`, `Teaching`, and `Contact`.
+
+### Removed
+- **Research & Themes Grid**: Removed redundant 4-theme cards per Comment 13, cleanly superseded by the expanded 6 Research Projects.
+- **Obsolete Components**: Removed legacy unused files (`About.tsx`, `AcademicJourney.tsx`, `Distinctions.tsx`, `Research.tsx`, `ResearchAreas.tsx`).
 
 ---
 

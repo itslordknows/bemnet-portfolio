@@ -2,20 +2,14 @@
 
 import React from "react";
 import { PORTFOLIO_DATA } from "@/data/portfolioData";
-import {
-  GraduationCap,
-  Briefcase,
-  Mail,
-  ExternalLink,
-  Award,
-} from "lucide-react";
+import { GraduationCap, Mail } from "lucide-react";
 
 export default function Hero() {
-  const { personal, timeline } = PORTFOLIO_DATA;
+  const { personal } = PORTFOLIO_DATA;
 
   return (
     <div id="about" className="space-y-10 pt-2">
-      {/* About Profile Card — Exact Benjamin Schiffer Style */}
+      {/* About Profile Card — Exact Swiss Editorial Style */}
       <section className="flex flex-col md:flex-row items-center bg-gradient-to-br from-white to-navy-lightest p-8 rounded-xl shadow-md border border-gray-100">
         <div className="md:w-1/4 text-center md:text-left mb-6 md:mb-0 flex-shrink-0">
           <div className="relative inline-block">
@@ -24,60 +18,40 @@ export default function Hero() {
               src="/bemnet.jpg"
               alt={personal.fullName}
               onError={(e) => {
-                // Fallback avatar
                 const target = e.currentTarget;
                 target.src =
                   "https://ui-avatars.com/api/?name=Bemnet+Mersha&background=00455e&color=fff&size=200";
               }}
             />
-            <p className="text-xs text-gray-500 mt-2.5 text-center">
-              School of Automation (
-              <a
-                href="https://english.bit.edu.cn/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:underline text-navy font-medium"
-              >
-                BIT
-              </a>
-              )
+            {/* Comment 2: Subtitle under photograph */}
+            <p className="text-xs text-gray-600 font-medium mt-2.5 text-center tracking-wide">
+              {personal.subtitle}
             </p>
           </div>
         </div>
 
         <div className="md:w-3/4 md:pl-8 text-left">
-          <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-1 tracking-tight">
+          <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-1 tracking-tight font-serif">
             {personal.fullName}
           </h1>
-          <p className="text-base sm:text-lg font-medium text-navy mb-4">
+          {/* Comment 1: Professional Designation */}
+          <p className="text-base sm:text-lg font-semibold text-navy mb-4 tracking-wide">
             {personal.title}
           </p>
 
-          <div className="space-y-3.5 text-gray-700 leading-relaxed text-left">
-            <p>
-              I am a Postdoctoral Researcher at the School of Automation,{" "}
-              <a
-                href="https://english.bit.edu.cn/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-navy font-semibold hover:underline"
-              >
-                Beijing Institute of Technology (BIT)
-              </a>
-              , working on physics-informed deep learning, adaptive Kalman filtering, and flight sensor analytical redundancy.
-            </p>
-            <p>
-              My research is driven by the goal of engineering trustworthy, physically consistent intelligence for safety-critical aerospace systems and autonomous platforms, lying at the intersection of physics, control theory, and machine learning.
-            </p>
+          {/* Comment 3: Introduction */}
+          <div className="space-y-3.5 text-gray-700 leading-relaxed text-left text-sm sm:text-base">
+            <p>{personal.introP1}</p>
+            <p>{personal.introP2}</p>
           </div>
 
-          {/* Social / Academic Icons */}
+          {/* Social / Academic Identifiers */}
           <div className="mt-6 flex flex-wrap items-center gap-4 text-gray-600">
             <a
-              href="mailto:bemnet.mersha@bit.edu.cn"
+              href={`mailto:${personal.links.email}`}
               className="inline-flex items-center gap-1.5 text-gray-600 hover:text-navy transition-colors text-sm font-medium"
               aria-label="Email"
-              title="Email: bemnet.mersha@bit.edu.cn"
+              title={`Email: ${personal.links.email}`}
             >
               <Mail className="w-5 h-5 text-navy" />
               <span>Email</span>
@@ -126,51 +100,6 @@ export default function Hero() {
               <span>LinkedIn</span>
             </a>
           </div>
-        </div>
-      </section>
-
-      {/* Appointments & Education Section — Exact Benjamin Schiffer Style */}
-      <section className="fade-in-section">
-        <h2 className="text-2xl font-bold text-gray-900 mb-5">
-          Appointments & Education
-        </h2>
-        <div className="bg-white p-6 sm:p-7 rounded-xl shadow-md border border-gray-100">
-          <ul className="space-y-4">
-            {timeline.map((item, index) => {
-              const isAppointment = item.category === "appointment";
-              return (
-                <li
-                  key={index}
-                  className="flex items-start p-3 sm:p-3.5 rounded-lg transition-transform duration-200 hover:scale-[1.01] hover:bg-gray-50 border border-transparent hover:border-gray-100"
-                >
-                  <div className="mt-1 mr-4 flex-shrink-0">
-                    {isAppointment ? (
-                      <Briefcase className="w-5 h-5 text-navy" />
-                    ) : item.title.includes("EMBA") ? (
-                      <Award className="w-5 h-5 text-navy" />
-                    ) : (
-                      <GraduationCap className="w-5 h-5 text-navy" />
-                    )}
-                  </div>
-                  <div className="flex-1">
-                    <p className="font-semibold text-gray-900 text-base">
-                      {item.title} ({item.year})
-                    </p>
-                    <p className="text-gray-600 text-sm mt-0.5">
-                      <span className="text-navy font-medium">
-                        {item.institution}
-                      </span>
-                      {" · "}
-                      <span className="text-gray-500">{item.location}</span>
-                    </p>
-                    <p className="text-gray-500 text-xs sm:text-sm mt-1 leading-relaxed">
-                      {item.description}
-                    </p>
-                  </div>
-                </li>
-              );
-            })}
-          </ul>
         </div>
       </section>
     </div>

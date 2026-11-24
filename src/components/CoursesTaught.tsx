@@ -2,7 +2,7 @@
 
 import React from "react";
 import { PORTFOLIO_DATA } from "@/data/portfolioData";
-import { BookOpen, GraduationCap, School, CheckCircle2 } from "lucide-react";
+import { School } from "lucide-react";
 
 export default function CoursesTaught() {
   const { courses } = PORTFOLIO_DATA;
@@ -10,7 +10,9 @@ export default function CoursesTaught() {
   return (
     <section id="courses" className="mt-12 fade-in-section">
       <div className="mb-6">
-        <h2 className="text-2xl font-bold text-gray-900">Courses Taught</h2>
+        <h2 className="text-2xl font-bold text-gray-900 font-serif">
+          Courses Taught
+        </h2>
         <p className="text-sm text-gray-600 mt-1">
           University lectures, laboratory instruction, and engineering capstone advisorship across academic appointments.
         </p>
@@ -41,7 +43,7 @@ export default function CoursesTaught() {
               </div>
 
               {/* Title */}
-              <h3 className="font-bold text-lg text-gray-900 mb-1 leading-snug">
+              <h3 className="font-bold text-lg text-gray-900 mb-1 leading-snug font-serif">
                 {course.title}
               </h3>
 
@@ -87,11 +89,11 @@ export default function CoursesTaught() {
             <School className="w-6 h-6 text-navy" />
           </div>
           <div>
-            <h4 className="font-bold text-base text-gray-900 mb-1">
+            <h4 className="font-bold text-base text-gray-900 mb-1 font-serif">
               Instructional Philosophy & Mentorship
             </h4>
             <p className="text-sm text-gray-600 leading-relaxed">
-              My teaching integrates physical mathematical rigor (differential equations, state-space models, Lyapunov stability) with hands-on computational modeling (MATLAB/Simulink, PyTorch) and physical hardware validation. I emphasize engineering intuition, enabling students to formulate resilient models that accommodate real-world noise, uncertainties, and hardware sensor failures.
+              My teaching integrates physical mathematical rigor (differential equations, state-space models, Lyapunov stability) with hands-on computational modeling (MATLAB/Simulink, Python) and experimental laboratory verification. I emphasize engineering intuition, enabling students to formulate resilient models that accommodate real-world noise, uncertainties, and hardware sensor failures.
             </p>
           </div>
         </div>

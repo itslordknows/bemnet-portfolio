@@ -6,7 +6,7 @@
 [![Next.js](https://img.shields.io/badge/Next.js-15.5.29-black?logo=next.js)](https://nextjs.org/)
 [![License](https://img.shields.io/badge/License-Private-lightgrey.svg)](LICENSE)
 
-Personal academic and research portfolio website for **Dr. Bemnet Wondimagegnehu Mersha**, Postdoctoral Researcher in Control Science & Artificial Intelligence at the School of Automation, Beijing Institute of Technology (BIT).
+Personal academic and research portfolio website for **Dr. Bemnet Wondimagegnehu Mersha**, Multisensory Fusion Researcher, Control Engineer and AI Researcher at the School of Automation, Beijing Institute of Technology (BIT).
 
 - **Central Brand Concept**: *"Engineering Trustworthy Intelligence"*
 - **Primary Production URL**: [https://bemnet-portfolio-website.vercel.app](https://bemnet-portfolio-website.vercel.app)
@@ -54,11 +54,13 @@ The portfolio embodies a **Swiss Editorial Minimalism / Quiet Academic Luxury** 
 │   │   ├── layout.tsx             # Root layout, Google Fonts (Source Serif 4, Inter), SEO metadata
 │   │   └── page.tsx               # Primary page assembling portfolio sections
 │   ├── components/
-│   │   ├── Navbar.tsx             # Sticky navigation with smooth scroll & mobile menu
-│   │   ├── Hero.tsx               # Portrait, academic titles, credo, social links
-│   │   ├── Research.tsx           # Primary research pillars & core thrusts
-│   │   ├── Projects.tsx           # Featured engineering & theoretical projects
-│   │   ├── CoursesTaught.tsx      # Teaching history, lectures, academic service
+│   │   ├── Navbar.tsx             # Sticky navigation with smooth scroll & mobile menu (About, Appointments, Education, Projects, Publications, Teaching, Contact)
+│   │   ├── Hero.tsx               # Academic portrait, titles, credo, first-person narrative, social links
+│   │   ├── Appointments.tsx       # Academic & research appointments with Postdoc project highlights
+│   │   ├── Education.tsx          # Standardized academic degrees with EMBA review note
+│   │   ├── Projects.tsx           # 6 research & engineering projects with challenge, methodology & impact accordions
+│   │   ├── Publications.tsx       # 12 verified peer-reviewed publications and preprints with DOI links
+│   │   ├── CoursesTaught.tsx      # Teaching history (7 standardized courses across BIT, AASTU, and DBU)
 │   │   ├── Contact.tsx            # Contact information, institutional email & copy utilities
 │   │   └── Footer.tsx             # Academic copyright & institutional affiliation
 │   └── data/
