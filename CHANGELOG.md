@@ -6,19 +6,19 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ---
 
-## [Unreleased]
+## [0.2.0] - 2026-11-24
 
 ### Added
 - **Academic Appointments Section (`Appointments.tsx`)**: Dedicated section for academic and research appointments (BIT Postdoc with Project 1 & 2 highlights, AASTU Lecturer, DBU Lecturer).
-- **Education Section (`Education.tsx`)**: Dedicated section for higher education degrees (EMBA with online review note, PhD in Control Science and Engineering, MSc in Control and Power Engineering, BSc in Electrical and Electronics Engineering).
+- **Education Section (`Education.tsx`)**: Dedicated section for higher education degrees (EMBA, PhD in Control Science and Engineering, MSc in Electrical Engineering, BSc in Electrical Engineering) using uniform graduation cap icon.
 - **Publications Section (`Publications.tsx`)**: Standalone publications component presenting 12 verified peer-reviewed articles, international conference papers, and book chapters with DOI links and type filtering.
 
 ### Changed
 - **Academic Profile Revisions (`src/data/portfolioData.ts`)**:
   - Updated title to **"Multisensory Fusion Researcher"** and subtitle to **"Control Engineer and AI Researcher"** across all components and metadata.
   - Replaced introductory biography with Dr. Bemnet's refined two-paragraph research statement.
-  - Replaced preliminary project entries with 6 comprehensive research initiatives containing structured challenges, methodologies, contributions, impacts, and publication links.
-  - Standardized teaching experience to 7 unique courses (Digital Control, Introduction to Control, Modern Control Engineering, Electrical Machines and Drives, Power Electronics and Electric Drives, Introduction to Robotics, Digital Signal Processing).
+  - Replaced preliminary project entries with the 6 exact research initiatives from Comment 12 (Challenge, Methodology & Approach, Contribution & Impact).
+  - Standardized teaching experience to the 7 unique courses from Comment 14 with their exact descriptions.
   - Updated top navigation tabs to `About`, `Appointments`, `Education`, `Projects`, `Publications`, `Teaching`, and `Contact`.
 
 ### Removed
