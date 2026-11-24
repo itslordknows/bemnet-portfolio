@@ -11,7 +11,7 @@
 
 ## 1. Executive Summary & Purpose
 
-This repository houses the personal academic portfolio website of **Dr. Bemnet Wondimagegnehu Mersha**, Postdoctoral Researcher in Control Science & Artificial Intelligence at the School of Automation, Beijing Institute of Technology (BIT).
+This repository houses the personal academic portfolio website of **Dr. Bemnet Wondimagegnehu Mersha**, Multisensory Fusion Researcher, Control Engineer and AI Researcher with a PhD and postdoctoral experience from the School of Automation, Beijing Institute of Technology (BIT).
 
 The primary goal is to provide a premier scholarly web presence conveying the brand concept **"Engineering Trustworthy Intelligence"**. The portfolio presents Dr. Bemnet's research in Physics-Informed ML, sensor fault diagnosis, multimodal fusion, and autonomous robotics to peer researchers, academic institutions, conference committees, and industrial collaborators.
 

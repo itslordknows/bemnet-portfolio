@@ -19,7 +19,7 @@ export default function Footer() {
         </p>
 
         <p className="text-xs text-gray-500 max-w-xl mx-auto leading-relaxed">
-          Postdoctoral Researcher · School of Automation · Beijing Institute of Technology (BIT)
+          Multisensory Fusion Researcher · School of Automation · Beijing Institute of Technology (BIT)
           <br />
           Engineering Trustworthy Intelligence · Physics-Informed ML · Sensor Fault Accommodation
         </p>

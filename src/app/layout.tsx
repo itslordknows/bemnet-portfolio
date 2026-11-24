@@ -3,18 +3,20 @@ import "./globals.css";
 import React from "react";
 
 export const metadata: Metadata = {
-  title: "Dr. Bemnet Wondimagegnehu Mersha | AI & Control Engineering Researcher",
+  title: "Dr. Bemnet Wondimagegnehu Mersha | Multisensory Fusion Researcher",
   description:
-    "Official academic portfolio of Dr. Bemnet Wondimagegnehu Mersha, Postdoctoral Researcher at Beijing Institute of Technology (BIT). Specializing in physics-informed machine learning, sensor fault detection, isolation & accommodation (FDIA), and resilient autonomous control systems.",
+    "Official academic portfolio of Dr. Bemnet Wondimagegnehu Mersha, Multisensory Fusion Researcher, Control Engineer and AI Researcher. Specializing in multisensory fusion, industrial automation, fault diagnosis, and condition monitoring.",
   keywords: [
     "Bemnet Wondimagegnehu Mersha",
     "Dr. Bemnet Mersha",
+    "Multisensory Fusion Researcher",
+    "Control Engineer and AI Researcher",
     "Beijing Institute of Technology",
-    "Physics-Informed Neural Networks",
+    "Physics-Informed Machine Learning",
     "Sensor Fault Detection and Accommodation",
     "Angle of Attack Sensor Faults",
     "Kalman Filtering",
-    "Reinforcement Learning Multi-UAV",
+    "Agentic RAG",
     "School of Automation BIT",
     "Control Science and Engineering",
   ],
@@ -24,15 +26,16 @@ export const metadata: Metadata = {
     type: "profile",
     locale: "en_US",
     url: "https://orcid.org/0000-0002-1000-8984",
-    title: "Dr. Bemnet Wondimagegnehu Mersha — Engineering Trustworthy Intelligence",
+    title: "Dr. Bemnet Wondimagegnehu Mersha — Multisensory Fusion Researcher",
     description:
-      "Postdoctoral Researcher in AI & Control Science at Beijing Institute of Technology. Advancing physics-informed deep learning and flight sensor analytical redundancy.",
+      "Multisensory Fusion Researcher, Control Engineer and AI Researcher. Specializing in multisensory fusion, industrial automation, fault diagnosis, and condition monitoring.",
     siteName: "Dr. Bemnet Wondimagegnehu Mersha Academic Portfolio",
   },
   twitter: {
     card: "summary",
-    title: "Dr. Bemnet Wondimagegnehu Mersha | AI & Control Engineering",
-    description: "Postdoctoral Researcher in AI & Control Science at Beijing Institute of Technology.",
+    title: "Dr. Bemnet Wondimagegnehu Mersha | Multisensory Fusion Researcher",
+    description:
+      "Control Engineer and AI Researcher specializing in multisensory fusion, industrial automation, and safety-critical aerospace diagnostics.",
   },
   robots: {
     index: true,
@@ -50,7 +53,9 @@ export default function RootLayout({
     "@type": "Person",
     name: "Dr. Bemnet Wondimagegnehu Mersha",
     alternateName: ["Bemnet W. Mersha", "Bemnet Mersha"],
-    jobTitle: "Postdoctoral Researcher",
+    jobTitle: "Multisensory Fusion Researcher",
+    description:
+      "Control Engineer and AI Researcher specializing in multisensory fusion, industrial automation, fault diagnosis, and condition monitoring.",
     worksFor: {
       "@type": "CollegeOrUniversity",
       name: "Beijing Institute of Technology",
@@ -85,11 +90,13 @@ export default function RootLayout({
       "https://www.linkedin.com/in/bemnet-mersha-501745155/",
     ],
     knowsAbout: [
+      "Multisensory Fusion",
+      "Industrial Automation",
+      "Fault Diagnosis and Condition Monitoring",
       "Physics-Informed Machine Learning",
       "Sensor Fault Detection, Isolation and Accommodation",
       "Adaptive Kalman Filtering",
       "Aerodynamic Flight Control Dynamics",
-      "Reinforcement Learning for Autonomous Systems",
     ],
   };
 
@@ -100,7 +107,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap"
           rel="stylesheet"
         />
         <script

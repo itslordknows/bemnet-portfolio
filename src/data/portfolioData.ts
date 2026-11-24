@@ -12,47 +12,42 @@ export interface Publication {
   citationsCount?: number;
 }
 
-export interface ResearchTheme {
-  id: string;
-  title: string;
-  tagline: string;
-  description: string;
-  methodology: string;
-  applications: string[];
-}
-
 export interface ResearchProject {
   id: string;
   title: string;
-  subtitle: string;
+  role: string;
+  researchType?: string;
+  institution: string;
+  period: string;
   challenge: string;
-  approach: string;
-  contribution: string;
-  impact: string;
-  relevantPaperDoi: string;
-  venueName: string;
+  methodology: string;
+  contributionAndImpact: string;
+  relevantPaperDoi?: string;
 }
 
-export interface TimelineItem {
-  year: string;
-  period: string;
+export interface AppointmentItem {
+  id: string;
   title: string;
   institution: string;
   location: string;
-  category: "appointment" | "education";
+  period: string;
   description: string;
+  projectHighlights?: string[];
+}
+
+export interface EducationItem {
+  id: string;
+  degree: string;
+  institution: string;
+  location: string;
+  period: string;
+  description?: string;
 }
 
 export interface CourseItem {
   id: string;
-  code?: string;
   title: string;
-  level: "Undergraduate" | "Graduate" | "Advanced Lab / Seminar" | "Undergraduate / Capstone";
-  institution: string;
-  period: string;
-  role: string;
   description: string;
-  topics: string[];
 }
 
 export interface Distinction {
@@ -66,57 +61,183 @@ export const PORTFOLIO_DATA = {
   personal: {
     fullName: "Dr. Bemnet Wondimagegnehu Mersha",
     shortName: "Dr. Bemnet W. Mersha",
-    title: "Postdoctoral Researcher | Artificial Intelligence & Control Engineering",
+    title: "Multisensory Fusion Researcher",
+    subtitle: "Control Engineer and AI Researcher",
     affiliation: "School of Automation, Beijing Institute of Technology (BIT)",
     location: "Beijing, China",
     credo: "Engineering Trustworthy Intelligence.",
-    headline: "Unifying physics-based dynamic modeling, adaptive state estimation, and deep neural architectures for mission-critical engineering reliability.",
-    intro: `I am an engineering researcher advancing the foundations of intelligent control, physics-informed machine learning, and multimodal sensor diagnostics. My research addresses fundamental safety, reliability, and analytical redundancy challenges in autonomous systems and aerospace engineering—formulating hybrid architectures that couple physical governing equations with deep neural models to achieve verifiable, fail-safe estimation and fault accommodation under extreme uncertainty.`,
-    bioP1: `I hold a Ph.D. in Control Science and Engineering from the School of Automation at Beijing Institute of Technology (BIT), an Executive Master of Business Administration (EMBA) from Quantic School of Business and Technology, an M.Sc. in Electrical Engineering (Control Engineering) from Addis Ababa University, and a B.Sc. in Electrical Engineering from Mekelle University.`,
-    bioP2: `Prior to my postdoctoral appointment at Beijing Institute of Technology, I served as a university lecturer in electrical and control engineering at Addis Ababa Science and Technology University (AASTU) and Debre Berhan University. My scientific work bridges classical systems engineering—including state estimation, Kalman filtering, Lyapunov stability, and non-linear control—with modern data-driven intelligence.`,
-    bioP3: `My research investigates how to instill mathematical trust and physical consistency into machine learning systems operating in mission-critical environments. By synergizing physics-informed neural networks (PINNs), transformers, and adaptive Kalman filters, my models detect, isolate, and accommodate complex sensor degradation in real time, ensuring that autonomous vehicles and aerospace platforms maintain operational safety.`,
+    headline:
+      "Unifying physics-based dynamic modeling, adaptive state estimation, and deep neural architectures for mission-critical engineering reliability.",
+    introP1:
+      "I am a Control Engineer and AI Researcher with a PhD and postdoctoral experience from the School of Automation at Beijing Institute of Technology (BIT), specializing in multisensory fusion, industrial automation, fault diagnosis, and condition monitoring.",
+    introP2:
+      "My research focuses on developing trustworthy and physically consistent artificial intelligence for safety-critical systems in aerospace and industrial applications, integrating principles from physics, control theory, and machine learning.",
     links: {
       scholar: "https://scholar.google.com/citations?user=0djAtWkAAAAJ",
       orcid: "https://orcid.org/0000-0002-1000-8984",
       linkedin: "https://www.linkedin.com/in/bemnet-mersha-501745155/",
       orcidId: "0000-0002-1000-8984",
+      email: "bemnet.mersha@bit.edu.cn",
     },
   },
 
-  researchThemes: [
+  appointments: [
     {
-      id: "physics-informed-ml",
-      title: "Physics-Informed Machine Learning & Hybrid Modeling",
-      tagline: "Bridging governing physical equations and deep neural representations",
-      description: "I integrate conservation principles, aerodynamic governing equations, and kinematic constraints directly into loss functions and transformer architectures to guarantee generalization and eliminate physically unviable outputs.",
-      methodology: "PINNs, Physics-Informed Transformers, Residual Invariant Learning, Hybrid Recurrent Networks",
-      applications: ["Flight Dynamics", "Aerodynamic State Estimation", "Predictive Diagnostics"],
+      id: "postdoc-bit",
+      title: "Postdoctoral Researcher",
+      institution: "School of Automation, Beijing Institute of Technology (BIT)",
+      location: "Beijing, China",
+      period: "2024 – 2026",
+      description:
+        "I led research on multisensory fusion. The primary objective was to combine multimodal data, physics-based models, and reasoning frameworks.",
+      projectHighlights: [
+        "Project 1: Hybrid AI and physics-based fault diagnosis for aircraft health monitoring (project lead)",
+        "Project 2: Multimodal classroom behavior evaluation using large language model (LLM) agents",
+      ],
     },
     {
-      id: "sensor-fdia",
-      title: "Sensor Fault Detection, Isolation & Accommodation (FDIA)",
-      tagline: "Real-time analytical redundancy for safety-critical avionics",
-      description: "I develop adaptive threshold Kalman filters and innovation covariance monitoring to detect subtle sensor drift, bias, and sudden telemetry failures in aircraft angle-of-attack (AoA) instrumentation.",
-      methodology: "Adaptive Threshold Kalman Filtering, Bias-Gain Tracking, Innovation Regularization, Analytical Redundancy",
-      applications: ["Fixed-Wing Aircraft", "F-16 Flight Control", "Avionic Sensor Integrity"],
+      id: "lecturer-aastu",
+      title: "Lecturer in Electrical & Control Engineering",
+      institution: "Addis Ababa Science and Technology University (AASTU)",
+      location: "Addis Ababa, Ethiopia",
+      period: "2016 – 2019",
+      description:
+        "I taught undergraduate courses in Modern control systems and digital control and supervised engineering capstone projects. I also led the fully funded research project \"Design and development of a battery-free, solar-powered flour-milling system.\"",
     },
     {
-      id: "sensor-fusion",
-      title: "Multimodal Sensor Fusion & State Estimation",
-      tagline: "Robust state reconstruction under non-Gaussian disturbances",
-      description: "I formulate filtering frameworks that unify asynchronous, heterogeneous sensor feeds while insulating estimation against non-Gaussian noise perturbations and adversarial telemetry interference.",
-      methodology: "Adversarial Representation Learning, Fuzzy State Estimation, Multimodal Feature Alignment",
-      applications: ["Industrial Automation", "Robotic Perception", "Smart Classroom Diagnostics"],
+      id: "lecturer-dbu",
+      title: "Lecturer in Electrical Engineering",
+      institution: "Debre Berhan University (DBU)",
+      location: "Debre Berhan, Ethiopia",
+      period: "2013 – 2016",
+      description:
+        "I taught modern control systems, process control, robotics, electrical machines, and power electronics, and contributed to academic curriculum development.",
+    },
+  ] as AppointmentItem[],
+
+  education: [
+    {
+      id: "emba",
+      degree: "Executive Master of Business Administration (EMBA)",
+      institution: "Quantic School of Business and Technology",
+      location: "Washington D.C., United States",
+      period: "Online 2024 – 2026",
+      description:
+        "EMBA program in strategy, data and decisions, supply chain and operations, AI for business, entrepreneurship, and other courses.",
     },
     {
-      id: "autonomous-systems",
-      title: "Autonomous Multi-Agent Robotics & Resilient Control",
-      tagline: "Cooperative mission execution over degraded communication channels",
-      description: "I design lightweight off-policy actor-critic reinforcement learning algorithms and distributed search paradigms capable of maintaining collective multi-UAV mission objectives despite packet loss and communication latency.",
-      methodology: "Off-Policy Actor-Critic DRL, Distributed Consensus, Cooperative Area Search Algorithms",
-      applications: ["Multi-UAV Swarms", "Search & Rescue Operations", "Distributed Robotic Systems"],
+      id: "phd",
+      degree: "Doctor of Philosophy (PhD) in Control Science and Engineering",
+      institution: "School of Automation, Beijing Institute of Technology (BIT)",
+      location: "Beijing, China",
+      period: "2019 – 2023",
+      description:
+        "In my doctoral dissertation, I developed data-driven models for fault detection, isolation, and accommodation in fixed-wing aircraft flight control systems.",
     },
-  ] as ResearchTheme[],
+    {
+      id: "msc",
+      degree: "Master of Science (MSc) in Electrical Engineering (Control Engineering)",
+      institution: "Addis Ababa University (AAU)",
+      location: "Addis Ababa, Ethiopia",
+      period: "2010 – 2013",
+      description: "",
+    },
+    {
+      id: "bsc",
+      degree: "Bachelor of Science (BSc) in Electrical Engineering",
+      institution: "Mekelle University",
+      location: "Mekelle, Ethiopia",
+      period: "2005 – 2009",
+      description: "",
+    },
+  ] as EducationItem[],
+
+  projects: [
+    {
+      id: "hybrid-sensor-fusion",
+      title: "Hybrid Physics-Informed and Data-Driven Sensor Fusion for Fault Detection",
+      role: "Project Lead",
+      researchType: "Postdoctoral Research",
+      institution: "Beijing Institute of Technology",
+      period: "Mar 2024 – Sep 2026",
+      challenge:
+        "I address the critical vulnerability of Angle-of-Attack sensors in flight control, stall prevention, and fly-by-wire envelope limiters, where physical hardware redundancy can suffer common-mode failures such as icing, bird strikes, electrical failure or mechanical jams.",
+      methodology:
+        "I proposed several methods that use both physics-based modeling and data-driven machine learning methods (Physics-Informed Transformers and Hybrid Kalman-LSTM networks). It fuses angle-of-attack, inertial, airspeed, altitude and attitude data to isolate faulty signals and reconstruct the sensor value in real time.",
+      contributionAndImpact:
+        "I validated this methodology on real flight dataset, demonstrating that my proposed method mitigates sudden sensor bias and gain drift with sub-degree accuracy. My framework eliminates single-point-of-fault vulnerabilities in safety-critical flight control without adding physical airframe weight or hardware complexity. The work resulted in three first-author SCI Q1 journal articles (2026).",
+      relevantPaperDoi: "10.1016/j.ast.2026.112390",
+    },
+    {
+      id: "classroom-rag-agent",
+      title: "Multimodal Classroom Behaviour Evaluation with Fuzzy Logic, LLM Agents and Agentic RAG",
+      role: "Main Contributor",
+      researchType: "Postdoctoral Research",
+      institution: "Beijing Institute of Technology",
+      period: "Mar 2024 – Sep 2026",
+      challenge:
+        "I address the difficulty of evaluating teaching and learning quality consistently from the raw, unstructured signals of a live classroom (video, audio and text), where perception outputs alone do not explain what is happening.",
+      methodology:
+        "I designed an agentic layer on top of a video, audio and text perception pipeline with fuzzy-logic fusion. A large language model agent (Qwen2.5-Max) with retrieval-augmented generation (RAG) and a ReAct-style reasoning loop interprets the perception outputs and produces automated evaluations of teaching and learning.",
+      contributionAndImpact:
+        "I delivered a practical implementation and piloted it in a live classroom setting. The work produced one journal article and several conference papers as corresponding author, and I guided student researchers to their own publications on the platform.",
+      relevantPaperDoi: "10.1007/978-981-95-6730-0_10",
+    },
+    {
+      id: "aoa-fdia-doctoral",
+      title: "Data-Driven Fault Detection, Isolation and Accommodation for Aircraft Angle-of-Attack Sensors",
+      role: "Project Lead",
+      researchType: "Doctoral Research",
+      institution: "Beijing Institute of Technology",
+      period: "Sep 2020 – Jun 2023",
+      challenge:
+        "I address the loss of reliable angle-of-attack measurements in fixed-wing aircraft when a sensor fails, which threatens flight control and stall protection and cannot always be covered by duplicated hardware.",
+      methodology:
+        "I developed data-driven models, based on recurrent neural networks, that detect and isolate a faulty angle-of-attack sensor and accommodate it by predicting the correct measurement from the remaining flight data, so that flight continues on a reconstructed signal.",
+      contributionAndImpact:
+        "I validated the approach on F-16 flight conditions with faulty sensors, delivering a software-based accommodation scheme that needs no extra hardware. It resulted in two first-author SCI Q1 journal articles and one EI conference paper, and it formed the foundation for my later hybrid physics-informed work.",
+      relevantPaperDoi: "10.1016/j.engappai.2022.104799",
+    },
+    {
+      id: "solar-flour-mill",
+      title: "Battery-Free, Solar-Powered Flour-Milling System",
+      role: "Project Lead",
+      institution: "Addis Ababa Science and Technology University",
+      period: "Sep 2017 – Sep 2019",
+      challenge:
+        "I address the need for affordable milling in rural communities, where grid electricity is unreliable or unavailable and the cost and upkeep of batteries make conventional solar systems hard to sustain.",
+      methodology:
+        "I designed a battery-free, solar-powered milling system that drives the mill directly from solar energy, working from concept through design to a functioning prototype.",
+      contributionAndImpact:
+        "I delivered an economically viable and sustainable solution for rural communities, demonstrated as a working prototype.",
+    },
+    {
+      id: "oxygen-unit-feasibility",
+      title: "Feasibility Study: Oxygen Production Unit, Debre Berhan Hospital",
+      role: "Project Developer",
+      institution: "Rotary Club of Debre Berhan",
+      period: "Oct 2015 – Oct 2017",
+      challenge:
+        "I address the medical need for a dependable oxygen supply at Debre Berhan Hospital.",
+      methodology:
+        "I carried out a feasibility study of an on-site oxygen production facility, assessing whether such a unit could be established and operated to serve the hospital.",
+      contributionAndImpact:
+        "I provided the evidence base for deciding whether to invest in on-site oxygen production for the hospital.",
+    },
+    {
+      id: "waste-management-sanitation",
+      title: "Pre-Feasibility Study: Solid Waste Management and Sanitation, Debre Berhan City",
+      role: "Project Developer",
+      institution: "Rotary Club of Debre Berhan",
+      period: "Oct 2015 – Oct 2017",
+      challenge:
+        "I address the sanitation and solid waste challenges of a growing city, which are central to sustainable urban development.",
+      methodology:
+        "I evaluated the existing situation and options for waste management and sanitation in Debre Berhan city through a pre-feasibility study.",
+      contributionAndImpact:
+        "I proposed an effective waste management and sanitation system to support sustainable urban development.",
+    },
+  ] as ResearchProject[],
 
   publications: [
     {
@@ -129,7 +250,8 @@ export const PORTFOLIO_DATA = {
       doi: "10.1016/j.ast.2026.112390",
       doiUrl: "https://doi.org/10.1016/j.ast.2026.112390",
       highlight: true,
-      abstractSnippet: "Proposes a novel physics-informed transformer framework coupled with adaptive threshold Kalman filtering to achieve ultra-reliable fault detection for flight-critical angle-of-attack sensors under complex aerodynamic conditions.",
+      abstractSnippet:
+        "Proposes a novel physics-informed transformer framework coupled with adaptive threshold Kalman filtering to achieve ultra-reliable fault detection for flight-critical angle-of-attack sensors under complex aerodynamic conditions.",
     },
     {
       id: "mssp-2026",
@@ -141,7 +263,8 @@ export const PORTFOLIO_DATA = {
       doi: "10.1016/j.ymssp.2026.114620",
       doiUrl: "https://doi.org/10.1016/j.ymssp.2026.114620",
       highlight: true,
-      abstractSnippet: "Synthesizes classical model-based Kalman filtering with physics-informed LSTM networks, providing robust analytical redundancy and fault diagnosis under aerodynamic noise.",
+      abstractSnippet:
+        "Synthesizes classical model-based Kalman filtering with physics-informed LSTM networks, providing robust analytical redundancy and fault diagnosis under aerodynamic noise.",
     },
     {
       id: "measurement-2026",
@@ -153,7 +276,8 @@ export const PORTFOLIO_DATA = {
       doi: "10.1016/j.measurement.2026.120416",
       doiUrl: "https://doi.org/10.1016/j.measurement.2026.120416",
       highlight: true,
-      abstractSnippet: "Presents a rigorous comparative study between covariance-regularized innovation monitoring and recurrent deep learning approaches for identifying subtle bias and gain degradation in avionics.",
+      abstractSnippet:
+        "Presents a rigorous comparative study between covariance-regularized innovation monitoring and recurrent deep learning approaches for identifying subtle bias and gain degradation in avionics.",
     },
     {
       id: "jaciii-2026",
@@ -165,7 +289,8 @@ export const PORTFOLIO_DATA = {
       doi: "10.20965/jaciii.2026.p0205",
       doiUrl: "https://doi.org/10.20965/jaciii.2026.p0205",
       highlight: false,
-      abstractSnippet: "Applies fuzzy atmosphere estimation combined with computer vision to quantify collective student engagement in smart educational settings.",
+      abstractSnippet:
+        "Applies fuzzy atmosphere estimation combined with computer vision to quantify collective student engagement in smart educational settings.",
     },
     {
       id: "springer-rag-2026",
@@ -177,7 +302,8 @@ export const PORTFOLIO_DATA = {
       doi: "10.1007/978-981-95-6730-0_10",
       doiUrl: "https://doi.org/10.1007/978-981-95-6730-0_10",
       highlight: false,
-      abstractSnippet: "Explores agentic reasoning frameworks using large foundation models, RAG, and ReAct paradigms to assess remote student engagement dynamics.",
+      abstractSnippet:
+        "Explores agentic reasoning frameworks using large foundation models, RAG, and ReAct paradigms to assess remote student engagement dynamics.",
     },
     {
       id: "kbs-2025",
@@ -189,7 +315,8 @@ export const PORTFOLIO_DATA = {
       doi: "10.1016/j.knosys.2025.113815",
       doiUrl: "https://doi.org/10.1016/j.knosys.2025.113815",
       highlight: true,
-      abstractSnippet: "Introduces a generalized image and sensor fusion architecture utilizing adversarial representation learning for enhanced multimodal perception.",
+      abstractSnippet:
+        "Introduces a generalized image and sensor fusion architecture utilizing adversarial representation learning for enhanced multimodal perception.",
     },
     {
       id: "ccis-head-2025",
@@ -201,7 +328,8 @@ export const PORTFOLIO_DATA = {
       doi: "10.1007/978-981-96-4753-8_2",
       doiUrl: "https://doi.org/10.1007/978-981-96-4753-8_2",
       highlight: false,
-      abstractSnippet: "Corresponding Author. Formulates a fuzzy attitude estimation pipeline to track head orientation metrics under unconstrained ambient lighting.",
+      abstractSnippet:
+        "Corresponding Author. Formulates a fuzzy attitude estimation pipeline to track head orientation metrics under unconstrained ambient lighting.",
     },
     {
       id: "ccis-noise-2025",
@@ -213,7 +341,8 @@ export const PORTFOLIO_DATA = {
       doi: "10.1007/978-981-96-4753-8_1",
       doiUrl: "https://doi.org/10.1007/978-981-96-4753-8_1",
       highlight: false,
-      abstractSnippet: "Investigates the robustness vulnerabilities of purely empirical neural network models when subjected to heavy-tailed, non-Gaussian sensor noise.",
+      abstractSnippet:
+        "Investigates the robustness vulnerabilities of purely empirical neural network models when subjected to heavy-tailed, non-Gaussian sensor noise.",
     },
     {
       id: "asoc-drl-2024",
@@ -225,7 +354,8 @@ export const PORTFOLIO_DATA = {
       doi: "10.1016/j.asoc.2024.111814",
       doiUrl: "https://doi.org/10.1016/j.asoc.2024.111814",
       highlight: true,
-      abstractSnippet: "Formulates a computationally lightweight actor-critic reinforcement learning structure designed for edge execution in resource-constrained robotic systems.",
+      abstractSnippet:
+        "Formulates a computationally lightweight actor-critic reinforcement learning structure designed for edge execution in resource-constrained robotic systems.",
     },
     {
       id: "asoc-uav-2023",
@@ -237,7 +367,8 @@ export const PORTFOLIO_DATA = {
       doi: "10.1016/j.asoc.2023.110592",
       doiUrl: "https://doi.org/10.1016/j.asoc.2023.110592",
       highlight: true,
-      abstractSnippet: "Proposes an autonomous decentralized cooperative search algorithm for drone swarms experiencing high communication dropout and channel unreliability.",
+      abstractSnippet:
+        "Proposes an autonomous decentralized cooperative search algorithm for drone swarms experiencing high communication dropout and channel unreliability.",
     },
     {
       id: "cis-f16-2023",
@@ -249,7 +380,8 @@ export const PORTFOLIO_DATA = {
       doi: "10.1007/s40747-021-00612-6",
       doiUrl: "https://doi.org/10.1007/s40747-021-00612-6",
       highlight: true,
-      abstractSnippet: "Demonstrates high-accuracy analytical redundancy on high-fidelity F-16 aerodynamic flight models, enabling real-time flight envelope protection despite total AoA hardware failure.",
+      abstractSnippet:
+        "Demonstrates high-accuracy analytical redundancy on high-fidelity F-16 aerodynamic flight models, enabling real-time flight envelope protection despite total AoA hardware failure.",
     },
     {
       id: "eaai-2022",
@@ -261,7 +393,8 @@ export const PORTFOLIO_DATA = {
       doi: "10.1016/j.engappai.2022.104799",
       doiUrl: "https://doi.org/10.1016/j.engappai.2022.104799",
       highlight: true,
-      abstractSnippet: "Develops an end-to-end data-driven accommodation framework that seamlessly synthesizes virtual sensor signals during physical transducer failure.",
+      abstractSnippet:
+        "Develops an end-to-end data-driven accommodation framework that seamlessly synthesizes virtual sensor signals during physical transducer failure.",
     },
     {
       id: "ccdc-2022",
@@ -273,7 +406,8 @@ export const PORTFOLIO_DATA = {
       doi: "10.1109/ccdc55256.2022.10033981",
       doiUrl: "https://doi.org/10.1109/ccdc55256.2022.10033981",
       highlight: false,
-      abstractSnippet: "Conference presentation of the core triple-stage (Detection, Isolation, Accommodation) architecture for fixed-wing flight control safety.",
+      abstractSnippet:
+        "Conference presentation of the core triple-stage (Detection, Isolation, Accommodation) architecture for fixed-wing flight control safety.",
     },
     {
       id: "africon-2017",
@@ -285,242 +419,77 @@ export const PORTFOLIO_DATA = {
       doi: "10.1109/afrcon.2017.8095448",
       doiUrl: "https://doi.org/10.1109/afrcon.2017.8095448",
       highlight: false,
-      abstractSnippet: "Early pioneering investigation into recurrent neural architectures for dynamic state prediction in nonlinear transportation networks.",
+      abstractSnippet:
+        "Early pioneering investigation into recurrent neural architectures for dynamic state prediction in nonlinear transportation networks.",
     },
   ] as Publication[],
-
-  projects: [
-    {
-      id: "flight-sensor-integrity",
-      title: "Analytical Redundancy & Fault Accommodation in Aircraft Flight Systems",
-      subtitle: "Angle-of-Attack (AoA) Sensor Integrity & Envelope Protection",
-      challenge: "I address the critical vulnerability of Angle-of-Attack sensors in flight control, stall prevention, and fly-by-wire envelope limiters, where physical hardware redundancy can suffer common-mode failures such as icing, bird strikes, or mechanical jams.",
-      approach: "I formulated a hybrid analytical redundancy scheme coupling physical aerodynamic equations with deep temporal learning (Physics-Informed Transformers and Hybrid Kalman-LSTM networks) to isolate false signals and reconstruct synthetic telemetry in real time.",
-      contribution: "I validated this methodology on high-fidelity aerodynamic simulations of the F-16 aircraft, demonstrating that my hybrid estimator tracks rapid pitch-rate transitions and mitigates sudden sensor bias and gain drift with sub-degree accuracy.",
-      impact: "My framework eliminates single-point-of-failure vulnerabilities in safety-critical flight control computers without adding physical airframe weight or hardware complexity.",
-      relevantPaperDoi: "10.1016/j.ast.2026.112390",
-      venueName: "Aerospace Science and Technology & MSSP",
-    },
-    {
-      id: "cooperative-uav-search",
-      title: "Decentralized Cooperative Multi-UAV Search in Degraded Environments",
-      subtitle: "Autonomous Consensus Under Packet Loss & Communication Latency",
-      challenge: "Cooperative autonomous search by drone swarms traditionally relies on continuous, high-bandwidth communication links that fail in contested, remote, or disaster environments.",
-      approach: "I engineered a distributed cooperative search methodology powered by a lightweight off-policy actor-critic reinforcement learning framework, enabling agents to maintain internal probabilistic environment maps and execute cooperative actions via consensus estimators.",
-      contribution: "I demonstrated superior target discovery rates and coverage completeness under severe communication interruption, achieving significant reductions in required parameter counts compared to standard DRL baselines.",
-      impact: "My approach enables robust deployment of autonomous robotic teams for search-and-rescue, environmental reconnaissance, and disaster monitoring in communications-denied environments.",
-      relevantPaperDoi: "10.1016/j.asoc.2023.110592",
-      venueName: "Applied Soft Computing",
-    },
-    {
-      id: "multimodal-feature-fusion",
-      title: "Adversarial Representation Learning for Multimodal Perception",
-      subtitle: "Noise-Insulated Image & State Fusion for Edge Diagnostics",
-      challenge: "Heterogeneous sensing streams (optical, infrared, kinematic) often display disparate noise profiles and environmental degradations that confound standard end-to-end neural networks.",
-      approach: "I designed PAFusion, a generalized fusion network leveraging adversarial representation learning to separate invariant shared physical features from modality-specific noise artifacts, ensuring coherent state reconstruction.",
-      contribution: "I benchmarked this architecture against state-of-the-art vision and multimodal perception datasets, achieving superior structural fidelity, edge sharpness, and minimal informational entropy loss.",
-      impact: "My network provides a foundational perception pipeline for autonomous ground vehicles, intelligent robotics, and industrial digital twins.",
-      relevantPaperDoi: "10.1016/j.knosys.2025.113815",
-      venueName: "Knowledge-Based Systems",
-    },
-  ] as ResearchProject[],
-
-  timeline: [
-    {
-      year: "2023 – Present",
-      period: "Aug 2023 – Dec 2025",
-      title: "Postdoctoral Researcher",
-      institution: "School of Automation, Beijing Institute of Technology (BIT)",
-      location: "Beijing, China",
-      category: "appointment",
-      description: "I lead research on physics-informed neural networks, sensor fault diagnosis, and hybrid state estimation in safety-critical systems in collaboration with international researchers.",
-    },
-    {
-      year: "2024 – 2026",
-      period: "Aug 2024 – Jan 2026",
-      title: "Executive Master of Business Administration (EMBA)",
-      institution: "Quantic School of Business and Technology",
-      location: "Washington D.C., United States",
-      category: "education",
-      description: "I am completing an advanced program in technology strategy, organizational finance, and global executive leadership.",
-    },
-    {
-      year: "2019 – 2023",
-      period: "Sep 2019 – May 2023",
-      title: "Doctor of Philosophy (Ph.D.) in Control Science & Engineering",
-      institution: "School of Automation, Beijing Institute of Technology (BIT)",
-      location: "Beijing, China",
-      category: "education",
-      description: "In my doctoral dissertation, I developed data-driven and physics-informed models for fault detection, isolation, and accommodation in fixed-wing aircraft flight control systems.",
-    },
-    {
-      year: "2016 – 2019",
-      period: "Oct 2016 – Sep 2019",
-      title: "Lecturer in Electrical & Control Engineering",
-      institution: "Addis Ababa Science and Technology University (AASTU)",
-      location: "Addis Ababa, Ethiopia",
-      category: "appointment",
-      description: "I delivered undergraduate and graduate coursework in control systems engineering, linear systems, and computational intelligence, and supervised engineering capstone projects.",
-    },
-    {
-      year: "2013 – 2016",
-      period: "Feb 2013 – Sep 2016",
-      title: "Lecturer in Electrical Engineering",
-      institution: "Debre Berhan University (DBU)",
-      location: "Debre Berhan, Ethiopia",
-      category: "appointment",
-      description: "I taught electrical engineering, instrumentation, and control system design, while contributing to academic curriculum development.",
-    },
-    {
-      year: "2010 – 2013",
-      period: "Sep 2010 – Jul 2013",
-      title: "Master of Science (M.Sc.) in Electrical Engineering (Control Engineering)",
-      institution: "Addis Ababa University (AAU)",
-      location: "Addis Ababa, Ethiopia",
-      category: "education",
-      description: "I specialized in advanced control theory, state estimation, and dynamic modeling of nonlinear systems.",
-    },
-    {
-      year: "2005 – 2009",
-      period: "Sep 2005 – Jul 2009",
-      title: "Bachelor of Science (B.Sc.) in Electrical Engineering",
-      institution: "Mekelle University",
-      location: "Mekelle, Ethiopia",
-      category: "education",
-      description: "I completed my undergraduate engineering degree with foundational coursework in circuit theory, signals & systems, and applied electromagnetics.",
-    },
-  ] as TimelineItem[],
 
   distinctions: [
     {
       year: "2025",
       title: "Corresponding Author Distinction",
       organization: "Communications in Computer and Information Science (Springer)",
-      detail: "I was selected as Corresponding Author for peer-reviewed research on fuzzy attitude estimation published in Springer.",
+      detail:
+        "I was selected as Corresponding Author for peer-reviewed research on fuzzy attitude estimation published in Springer.",
     },
     {
       year: "2023 – 2026",
       title: "Author in Tier-1 Elsevier & Springer Aerospace Journals",
       organization: "Aerospace Science and Technology, MSSP, Measurement, KBS, EAAI",
-      detail: "I have published first-author breakthroughs in leading international journals indexed in SCI / Scopus with high impact factors.",
+      detail:
+        "I have published first-author breakthroughs in leading international journals indexed in SCI / Scopus with high impact factors.",
     },
     {
       year: "2019 – 2023",
       title: "Doctoral Fellowship Award",
       organization: "Beijing Institute of Technology",
-      detail: "I was awarded a competitive doctoral research scholarship to pursue doctoral studies in Control Science and Engineering at BIT.",
+      detail:
+        "I was awarded a competitive doctoral research scholarship to pursue doctoral studies in Control Science and Engineering at BIT.",
     },
   ] as Distinction[],
 
   courses: [
     {
-      id: "control-systems",
-      code: "ECE 3101",
-      title: "Control Systems Engineering (Linear & Non-linear)",
-      level: "Undergraduate",
-      institution: "Addis Ababa Science and Technology University (AASTU)",
-      period: "2016 – 2019",
-      role: "Lecturer & Course Coordinator",
+      id: "digital-control",
+      title: "Digital Control",
       description:
-        "Comprehensive instruction in dynamic mathematical modeling, state-space representations, Lyapunov stability, root locus, frequency domain design (Bode/Nyquist), state observers, and closed-loop feedback controller synthesis.",
-      topics: [
-        "State-Space Representations",
-        "Lyapunov & Routh Stability",
-        "Root Locus & Frequency Domain",
-        "State Feedback & Observers",
-        "MATLAB & Simulink Synthesis",
-      ],
+        "Analysis and design of discrete-time control systems using Z-transform, state-space methods, and digital controller implementation.",
     },
     {
-      id: "signals-systems",
-      code: "ECE 2204",
-      title: "Signals and Systems & State Estimation",
-      level: "Undergraduate",
-      institution: "Addis Ababa Science and Technology University (AASTU)",
-      period: "2017 – 2019",
-      role: "Lecturer",
+      id: "intro-control",
+      title: "Introduction to Control",
       description:
-        "Rigorous mathematical treatment of continuous and discrete-time signals, LTI systems, convolution integrals, Fourier series and transforms, Laplace/Z-transforms, and fundamental discrete Kalman filtering formulations.",
-      topics: [
-        "LTI Systems & Convolution",
-        "Fourier & Z-Transforms",
-        "Stochastic State Estimation",
-        "Discrete Kalman Filtering",
-        "Sampling Theorem & Aliasing",
-      ],
+        "Fundamentals of feedback control, transfer functions, time and frequency response, and stability analysis.",
     },
     {
-      id: "applied-ml-control",
-      code: "AUTO 802",
-      title: "Applied Machine Learning & Neural Networks in Control",
-      level: "Graduate",
-      institution: "Beijing Institute of Technology (BIT)",
-      period: "2023 – Present",
-      role: "Co-Instructor & Research Seminar Mentor",
+      id: "modern-control",
+      title: "Modern Control Engineering",
       description:
-        "Advanced graduate seminar exploring physics-informed deep learning, physics-informed transformers, residual learning, Kalman filter hybridizations, and flight sensor analytical redundancy for safety-critical aerospace systems.",
-      topics: [
-        "Physics-Informed Neural Networks (PINNs)",
-        "Transformers for Temporal Signals",
-        "Kalman-LSTM Hybrid Architectures",
-        "Analytical Redundancy & FDIA",
-        "Adversarial Feature Alignment",
-      ],
+        "State-space modeling, controllability, observability, state feedback, observers, and optimal control fundamentals.",
     },
     {
-      id: "instrumentation-sensors",
-      code: "EE 3112",
-      title: "Sensor Instrumentation, Measurement & Process Control",
-      level: "Undergraduate",
-      institution: "Debre Berhan University (DBU)",
-      period: "2013 – 2016",
-      role: "Lecturer",
+      id: "electrical-machines-drives",
+      title: "Electrical Machines and Drives",
       description:
-        "Principles of physical transducers (aerodynamic, kinematic, thermal), analog signal conditioning, ADC conversion, telemetry protocols, sensor fault modes, analytical redundancy, and industrial process control loops.",
-      topics: [
-        "Transducer Physics & Calibration",
-        "Signal Conditioning Amplifiers",
-        "Telemetry & Industrial Buses",
-        "Sensor Fault Detection",
-        "Closed-Loop Process Control",
-      ],
+        "Principles, operation, modeling, and control of DC and AC electrical machines and drive systems.",
     },
     {
-      id: "circuits-lab",
-      code: "EE 2101L",
-      title: "Electrical Circuits & Control Systems Laboratory",
-      level: "Undergraduate",
-      institution: "Debre Berhan University (DBU)",
-      period: "2013 – 2015",
-      role: "Laboratory Director & Instructor",
+      id: "power-electronics-drives",
+      title: "Power Electronics and Electric Drives",
       description:
-        "Hands-on laboratory instruction utilizing oscilloscopes, arbitrary function generators, operational amplifier circuits, transient dynamic response analysis, and hardware-in-the-loop (HIL) prototype verification.",
-      topics: [
-        "Oscilloscopes & Signal Analysis",
-        "Op-Amp Active Filter Topologies",
-        "Transient Response Testing",
-        "Breadboard Prototyping",
-        "Laboratory Instrumentation Safety",
-      ],
+        "Power electronic converters, motor drive systems, PWM techniques, and speed control of electric machines.",
     },
     {
-      id: "senior-capstone",
-      code: "ECE 4900",
-      title: "Undergraduate Senior Capstone & Engineering Thesis Advising",
-      level: "Undergraduate / Capstone",
-      institution: "AASTU & DBU",
-      period: "2014 – 2019",
-      role: "Faculty Project Advisor",
+      id: "intro-robotics",
+      title: "Introduction to Robotics",
       description:
-        "Advising and mentoring over 35 undergraduate engineering teams through conception, simulation, embedded hardware implementation, technical report writing, and formal thesis defense.",
-      topics: [
-        "Autonomous Robotics Prototypes",
-        "Microcontroller Interfacing & C/C++",
-        "Sensor Fusion & Actuator Control",
-        "Technical Documentation & Defense",
-        "Engineering Ethics & Reliability",
-      ],
+        "Modeling, kinematics, Jacobian analysis, dynamics, trajectory planning, and feedback control of industrial robotic manipulators.",
+    },
+    {
+      id: "digital-signal-processing",
+      title: "Digital Signal Processing",
+      description:
+        "Discrete-time signals and systems, digital filter design, Z-transform, DFT, and FFT for signal analysis.",
     },
   ] as CourseItem[],
 };
-
